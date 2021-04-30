@@ -7,23 +7,23 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CurrencyServiceCommonImpl implements CurrencyServiceCommon {
+public class CurrencyServiceImpl implements CurrencyService {
 
     @Autowired
-    private CurrencyDbService currencyDbService;
+    private CurrencyStorage currencyStorage;
 
     @Override
     public List<Currency> getAllCurrency() {
-        return currencyDbService.getAllCurrency();
+        return currencyStorage.getCurrencies();
     }
 
     @Override
     public Currency getCurrencyByName(String name) {
-        return currencyDbService.getParticularCurrency(name);
+        return currencyStorage.getCurrency(name);
     }
 
     @Override
     public List<Currency> updateCurrency() {
-        return currencyDbService.updateCurrency();
+        return currencyStorage.updateCurrencies();
     }
 }

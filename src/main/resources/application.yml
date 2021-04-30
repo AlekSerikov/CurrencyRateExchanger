@@ -3,7 +3,9 @@ exchangeRateURL: https://v6.exchangerate-api.com/v6/f40ba9794464d382433580d9/lat
 spring:
   datasource:
     password: 72305
-    url: jdbc:postgresql://localhost:5432/currency
-    username: postgres
+    url: jdbc:mysql://localhost:3306/currency?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+    username: root
 #  profiles:
 #    active: local
+
+circuitBreakerId: currencyApiService

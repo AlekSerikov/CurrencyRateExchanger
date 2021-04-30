@@ -1,9 +1,8 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Currency;
-import com.example.demo.service.CurrencyServiceCommon;
+import com.example.demo.service.CurrencyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,21 +12,20 @@ import java.util.List;
 public class CurrencyController {
 
     @Autowired
-    private CurrencyServiceCommon currencyServiceCommon;
+    private CurrencyService currencyService;
 
     @GetMapping("/currency")
-    public List<Currency> getCurrencies(Authentication authentication) {
-//        System.out.println(authentication.getAuthorities());
-        return currencyServiceCommon.getAllCurrency();
+    public List<Currency> getCurrencies() {
+        return currencyService.getAllCurrency();
     }
 
     @GetMapping("/currency/{name}")
     public Currency getCurrencyByName(@PathVariable String name) {
-        return currencyServiceCommon.getCurrencyByName(name);
+        return currencyService.getCurrencyByName(name);
     }
 
     @PutMapping("/currency")
     public List<Currency> updateCurrency() {
-        return currencyServiceCommon.updateCurrency();
+        return currencyService.updateCurrency();
     }
 }

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CurrencyDbServiceImpl implements CurrencyDbService {
+public class CurrencyStorageImpl implements CurrencyStorage {
 
     @Autowired
     private CurrencyRepository currencyRepository;
@@ -18,18 +18,18 @@ public class CurrencyDbServiceImpl implements CurrencyDbService {
     CurrencyApiService currencyApiService;
 
     @Override
-    public List<Currency> getAllCurrency() {
+    public List<Currency> getCurrencies() {
         return currencyRepository.findAll();
     }
 
     @Override
-    public Currency getParticularCurrency(String name) {
+    public Currency getCurrency(String name) {
         return currencyRepository.findByName(name)
                 .orElseThrow(() -> new NoSuchCurrencyException("There is no currency with name: " + name));
     }
 
     @Override
-    public List<Currency> updateCurrency() {
+    public List<Currency> updateCurrencies() {
         return currencyRepository.saveAll(currencyApiService.getAllCurrency());
     }
 }
