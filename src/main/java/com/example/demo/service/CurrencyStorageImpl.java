@@ -15,7 +15,7 @@ public class CurrencyStorageImpl implements CurrencyStorage {
     private CurrencyRepository currencyRepository;
 
     @Autowired
-    CurrencyApiService currencyApiService;
+    private CurrencyApiService currencyApiService;
 
     @Override
     public List<Currency> getCurrencies() {
@@ -30,6 +30,6 @@ public class CurrencyStorageImpl implements CurrencyStorage {
 
     @Override
     public List<Currency> updateCurrencies() {
-        return currencyRepository.saveAll(currencyApiService.getAllCurrency());
+        return currencyRepository.saveAll(currencyApiService.getCurrencies());
     }
 }

@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface CurrencyApiService {
 
-    List<Currency> getAllCurrency();
+    List<Currency> getCurrencies();
 
 }

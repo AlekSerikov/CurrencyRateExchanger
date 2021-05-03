@@ -13,12 +13,12 @@ public class CurrencyServiceImpl implements CurrencyService {
     private CurrencyStorage currencyStorage;
 
     @Override
-    public List<Currency> getAllCurrency() {
+    public List<Currency> getCurrencies() {
         return currencyStorage.getCurrencies();
     }
 
     @Override
-    public Currency getCurrencyByName(String name) {
+    public Currency getCurrency(String name) {
         return currencyStorage.getCurrency(name);
     }
 

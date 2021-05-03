@@ -9,6 +9,10 @@ public class CurrencyInfo {
     public CurrencyInfo() {
     }
 
+    public CurrencyInfo(Map<String, Double> conversionRates) {
+        this.conversionRates = conversionRates;
+    }
+
     public Map<String, Double> getConversionRates() {
         return conversionRates;
     }

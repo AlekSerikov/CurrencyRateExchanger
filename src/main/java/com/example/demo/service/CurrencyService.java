@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface CurrencyService {
 
-    List<Currency> getAllCurrency();
+    List<Currency> getCurrencies();
 
-    Currency getCurrencyByName(String name);
+    Currency getCurrency(String name);
 
     List<Currency> updateCurrency();
 }

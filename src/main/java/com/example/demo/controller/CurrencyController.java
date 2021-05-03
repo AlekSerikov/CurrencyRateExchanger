@@ -16,12 +16,12 @@ public class CurrencyController {
 
     @GetMapping("/currency")
     public List<Currency> getCurrencies() {
-        return currencyService.getAllCurrency();
+        return currencyService.getCurrencies();
     }
 
     @GetMapping("/currency/{name}")
     public Currency getCurrencyByName(@PathVariable String name) {
-        return currencyService.getCurrencyByName(name);
+        return currencyService.getCurrency(name);
     }
 
     @PutMapping("/currency")

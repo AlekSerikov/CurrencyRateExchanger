@@ -24,13 +24,10 @@ public class CurrencyApiServiceImpl implements CurrencyApiService {
     private String exchangeRateURL;
 
     @Autowired
-    protected CurrencyRepository currencyRepository;
-
-    @Autowired
     CircuitBreaker circuitBreaker;
 
     @Override
-    public List<Currency> getAllCurrency() {
+    public List<Currency> getCurrencies() {
         return getCurrencyRatesFromUrl(exchangeRateURL).entrySet().stream()
                 .map(entry -> new Currency(entry.getKey(), 1 / entry.getValue()))
                 .collect(Collectors.toList());
