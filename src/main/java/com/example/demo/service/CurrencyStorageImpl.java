@@ -3,19 +3,21 @@ package com.example.demo.service;
 import com.example.demo.dao.CurrencyRepository;
 import com.example.demo.entity.Currency;
 import com.example.demo.handlers.exceptions.NoSuchCurrencyException;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@NoArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class CurrencyStorageImpl implements CurrencyStorage {
 
-    @Autowired
-    private CurrencyRepository currencyRepository;
-
-    @Autowired
-    private CurrencyApiService currencyApiService;
+    private @NonNull CurrencyRepository currencyRepository;
+    private @NonNull CurrencyApiService currencyApiService;
 
     @Override
     public List<Currency> getCurrencies() {

@@ -1,16 +1,20 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Currency;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@NoArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class CurrencyServiceImpl implements CurrencyService {
 
-    @Autowired
-    private CurrencyStorage currencyStorage;
+    private @NonNull CurrencyStorage currencyStorage;
 
     @Override
     public List<Currency> getCurrencies() {

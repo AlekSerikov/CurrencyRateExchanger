@@ -1,23 +1,16 @@
 package com.example.demo.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.Map;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class CurrencyInfo {
 
     Map<String, Double> conversionRates;
 
-    public CurrencyInfo() {
-    }
-
-    public CurrencyInfo(Map<String, Double> conversionRates) {
-        this.conversionRates = conversionRates;
-    }
-
-    public Map<String, Double> getConversionRates() {
-        return conversionRates;
-    }
-
-    public void setConversionRates(Map<String, Double> conversionRates) {
-        this.conversionRates = conversionRates;
-    }
 }

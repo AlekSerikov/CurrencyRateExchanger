@@ -4,6 +4,9 @@ import com.example.demo.dao.CurrencyRepository;
 import com.example.demo.entity.Currency;
 import com.example.demo.entity.CurrencyInfo;
 import com.example.demo.handlers.exceptions.CurrencyAPIException;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.circuitbreaker.CircuitBreaker;
@@ -15,16 +18,14 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
+@NoArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class CurrencyApiServiceImpl implements CurrencyApiService {
-
-    @Autowired
-    private RestTemplate restTemplate;
 
     @Value("${exchangeRateURL}")
     private String exchangeRateURL;
-
-    @Autowired
-    CircuitBreaker circuitBreaker;
+    private @NonNull RestTemplate restTemplate;
+    private @NonNull CircuitBreaker circuitBreaker;
 
     @Override
     public List<Currency> getCurrencies() {
