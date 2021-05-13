@@ -8,15 +8,28 @@ exchangeRateURL: https://v6.exchangerate-api.com/v6/f40ba9794464d382433580d9/lat
 ##  profiles:
 ##    active: local
 
+#server:
+#  port: 8083
+#
+##for deploy to docker
+#spring:
+#  datasource:
+#    password: password
+#    url: jdbc:mysql://mysql-container:3306/currencies
+#    username: root
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+
 server:
-  port: 8083
+  port: 8001
 
 #for deploy to docker
 spring:
   datasource:
     password: password
-    url: jdbc:mysql://mysql-container:3306/currencies
-    username: root
+    url: jdbc:mysql://10.0.11.247:3306/currencies
+    username: user
   jpa:
     hibernate:
       ddl-auto: update
