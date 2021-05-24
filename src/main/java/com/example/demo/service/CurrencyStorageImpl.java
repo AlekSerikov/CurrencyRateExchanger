@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Service
@@ -17,7 +18,10 @@ import java.util.List;
 public class CurrencyStorageImpl implements CurrencyStorage {
 
     private @NonNull CurrencyRepository currencyRepository;
-    private @NonNull CurrencyApiService currencyApiService;
+
+    @Resource(name="${application.apiService}")
+//    @NonNull
+    private CurrencyApiService currencyApiService;
 
     @Override
     public List<Currency> getCurrencies() {

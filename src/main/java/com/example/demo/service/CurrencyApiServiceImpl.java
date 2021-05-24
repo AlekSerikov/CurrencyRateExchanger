@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import com.example.demo.dao.CurrencyRepository;
 import com.example.demo.entity.Currency;
 import com.example.demo.entity.CurrencyInfo;
 import com.example.demo.handlers.exceptions.CurrencyAPIException;
@@ -29,6 +28,7 @@ public class CurrencyApiServiceImpl implements CurrencyApiService {
 
     @Override
     public List<Currency> getCurrencies() {
+        System.out.println("api");
         return getCurrencyRatesFromUrl(exchangeRateURL).entrySet().stream()
                 .map(entry -> new Currency(entry.getKey(), 1 / entry.getValue()))
                 .collect(Collectors.toList());
